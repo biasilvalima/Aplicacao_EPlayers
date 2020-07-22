@@ -8,10 +8,16 @@ namespace E_Players_ASPNETCORE.Interfaces
          //criar
         void Crate(Equipe e);
 
-         //Ler
+         /// <summary>
+         /// Le todos os arquivos do csv
+         /// </summary>
+         /// <returns>Retorna uma lista</returns>
         List<Equipe> ReadAll();
 
-         //Alterar
+         /// <summary>
+         /// Altera um metodo
+         /// </summary>
+         /// <param name="e"></param>
          void Update(Equipe e);
 
          //Excluir

@@ -34,6 +34,10 @@ namespace E_Players_ASPNETCORE.Models
             return $"{e.IdEquipe};{e.Nome};{e.Imagem}";
         }
 
+         /// <summary>
+         /// Metodo que deletar alguma informação desejada
+         /// </summary>
+         /// <param name="idEquipe">Vai retornar as linhas que nao foram excluidas a partir do Do Reescrever CSV</param>
         public void Delete(int idEquipe)
         {
             List<string> linhas = ReadAllLinesCSV(PATH);
@@ -42,14 +46,20 @@ namespace E_Players_ASPNETCORE.Models
             ReescreverCSV(PATH,linhas);
 
         }
-        //Criamos a lista pra armazenar
+        /// <summary>
+        /// Metodo para armazenar os dados csv
+        /// </summary>
+        /// <returns>Uma lista das equipes</returns>
         public List<Equipe> ReadAll()
         {
              List<Equipe> equipes = new List<Equipe>();
-             //E lê todas as linhas com o ReadAllLines
+             /// <summary>
+             /// Metodo de le as linhas
+             /// </summary>
+             /// <returns>E retorna no csv</returns>
             string[] linhas = File.ReadAllLines(PATH);
 
-            //Depois varremos essa informações, separando com split e cria o novo objeto equipe
+            ///Depois varremos essa informações, separando com split e cria o novo objeto equipe
             foreach (var item in linhas)
             {
                 string[] linha = item.Split(";");

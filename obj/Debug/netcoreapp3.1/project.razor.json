@@ -20536,6 +20536,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\biali\\OneDrive\\Área de Trabalho\\Beatriz\\Trabalhos\\Senai\\E-Players_ASPNETCORE\\Views\\Equipe\\Index.cshtml",
+      "TargetPath": "Views\\Equipe\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\biali\\OneDrive\\Área de Trabalho\\Beatriz\\Trabalhos\\Senai\\E-Players_ASPNETCORE\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -20553,6 +20558,11 @@
     {
       "FilePath": "c:\\Users\\biali\\OneDrive\\Área de Trabalho\\Beatriz\\Trabalhos\\Senai\\E-Players_ASPNETCORE\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\biali\\OneDrive\\Área de Trabalho\\Beatriz\\Trabalhos\\Senai\\E-Players_ASPNETCORE\\Views\\Noticia\\Index.cshtml",
+      "TargetPath": "Views\\Noticia\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],
