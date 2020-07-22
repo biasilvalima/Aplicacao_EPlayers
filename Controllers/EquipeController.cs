@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using E_Players_ASPNETCORE.Models;
 using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace E_Players_ASPNETCORE.Controllers
 {
@@ -25,7 +26,31 @@ namespace E_Players_ASPNETCORE.Controllers
             Equipe novaEquipe = new Equipe();
             novaEquipe.IdEquipe = Int32.Parse(form["IdEquipe"]);
             novaEquipe.Nome = form["Nome"];
-            novaEquipe.Imagem = form["Imagem"];
+            
+            /// <summary>
+            /// gora a imagem não é mais um arquivo de texto, agora ela passa a ser file e coseguimos trazer ela pelo nome atraves das pastas.
+            /// </summary>
+            var file    = form.Files[0];
+            var folder  = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Equipes");
+
+            if(file != null)
+            {
+                if(!Directory.Exists(folder)){
+                    Directory.CreateDirectory(folder);
+                }
+
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/", folder, file.FileName);
+                using (var stream = new FileStream(path, FileMode.Create))  
+                {  
+                    file.CopyTo(stream);  
+                }
+                novaEquipe.Imagem   = file.FileName;
+            }
+            else
+            {
+                novaEquipe.Imagem   = "padrao.png";
+            }
+            // Upload Final
 
             equipeModel.Crate(novaEquipe);
 
@@ -33,6 +58,13 @@ namespace E_Players_ASPNETCORE.Controllers
             return LocalRedirect("~/Equipe");
         }
 
+        [Route("{id}")]
+        public IActionResult Excluir(int id)
+        {
+            equipeModel.Delete(id);
+            return LocalRedirect("~/Equipe");
+        }
+        
         
     }
 }
